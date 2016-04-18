@@ -18,6 +18,10 @@ gem 'wordnik'
 gem 'gingerice'
 
 gem 'rginger'
+
+gem 'ots'
+
+# gem 'summarize', '~> 1.0', '>= 1.0.3'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
