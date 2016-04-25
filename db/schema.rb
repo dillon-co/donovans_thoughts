@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20160421023201) do
 
   create_table "scrapped_links", force: :cascade do |t|
     t.string   "link_name"
+    t.text     "google_link"
     t.text     "scrapped_link"
-    t.text     "returned_text"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
