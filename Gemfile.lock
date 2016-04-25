@@ -84,6 +84,7 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    open_uri_redirections (0.2.1)
     ots (0.5.4)
     pg (0.18.4)
     rack (1.6.4)
@@ -170,6 +171,8 @@ DEPENDENCIES
   gingerice
   jbuilder (~> 2.0)
   jquery-rails
+  nokogiri (~> 1.6, >= 1.6.7.2)
+  open_uri_redirections
   ots
   pg (~> 0.15)
   rails (= 4.2.5)

@@ -21,6 +21,9 @@ gem 'rginger'
 
 gem 'ots'
 
+gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
+
+gem 'open_uri_redirections'
 # gem 'summarize', '~> 1.0', '>= 1.0.3'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

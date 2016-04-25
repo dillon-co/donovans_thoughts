@@ -3,18 +3,68 @@ require 'rginger'
 require 'ots'
 class Sentence < ActiveRecord::Base
 
-  def generated_sentence
+  def generate_sentence(i)
+    puts "again"
     parser = RGinger::Parser.new
-    output = parser.rephrase input
-    output['alternatives']
+    output = parser.rephrase i
+    output_not_working = true
+    if output_not_working
+      5.times do
+        if output['alternatives'] = []
+          i = i.split(' ').shuffle.shuffle.join(' ')
+          output = parser.rephrase i 
+          puts output
+        else  
+          output['alternatives']
+          output_not_working = false
+        end
+      end  
+    end 
+    return output['alternatives']   
   end  
 
 
   def summarize_paragraph
     article = OTS.parse(paragraph)
-    a = article.summarize(percent: 5)
-    puts a
+    sentences = article.summarize(percent: 5)
+    sentences.each do |sentence|
+      generate_sentence(sentence[:sentence])
+    end  
   end
+
+  def get_needed_words
+    new_sentences = []
+    summarize_paragraph.each do |sentence|
+      parsed_sentence = OTS.parse(sentence[:sentence])
+      topics_and_keywords = generate_topics_and_keywords(parsed_sentence)
+      topics_array = topics_and_keywords[:topics]
+      extras_array = ["that", "this", "it", 'the', "then", "will be", 'was', 'is']
+      keyword_array = topics_and_keywords[:keywords]
+      while new_sentences = []
+        mashed_words_string = mashed_words(topics_array, keyword_array)
+        topics_array << extras_array.sample
+        extras_array.each { |word| topics_array.delete(word) }
+        generate_sentence(mashed_words_string).each {|s| new_sentences << s}
+      end  
+    end  
+  end
+
+  def generate_topic_and_keyword_array(topics, keywords)
+    keywords.each { |k| topics.delete(k) }
+    topics << keywords.sample
+    topics
+  end  
+
+  def mashed_words(topics, keywords)
+    generate_topic_and_keyword_array(topics, keywords).join(' ')
+  end  
+
+  def generate_topics_and_keywords(sentence)
+    all_topics = sentence.topics
+    all_keywords = sentence.keywords
+    all_topics.each { |topic| all_keywords.delete(topic)}
+    {topics: all_topics, keywords: all_keywords}
+  end  
 
   def paragraph
     "The New York Times (sometimes abbreviated to NYT) is an American daily newspaper, founded and continuously published in New York City since September 18, 1851, by the New York Times Company. The New York Times has won 117 Pulitzer Prizes, more than any other news organization.[5][6][7]

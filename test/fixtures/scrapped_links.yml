@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  link_name: MyString
+  scrapped_link: MyText
+  returned_text: MyText
+
+two:
+  link_name: MyString
+  scrapped_link: MyText
+  returned_text: MyText
