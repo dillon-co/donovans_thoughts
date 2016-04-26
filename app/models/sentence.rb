@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: sentences
+#
+#  id         :integer          not null, primary key
+#  input      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'gingerice'
 require 'rginger'
 require 'ots'
@@ -40,7 +50,7 @@ class Sentence < ActiveRecord::Base
       topics_array = topics_and_keywords[:topics]
       extras_array = ["that", "this", "it", 'the', "then", "will be", 'was', 'is']
       keyword_array = topics_and_keywords[:keywords]
-      while new_sentences = []
+      while new_sentences == []
         mashed_words_string = mashed_words(topics_array, keyword_array)
         topics_array << extras_array.sample
         extras_array.each { |word| topics_array.delete(word) }
