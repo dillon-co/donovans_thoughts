@@ -21,6 +21,8 @@ gem 'rginger'
 
 gem 'ots'
 
+gem 'google-search', '~> 1.0', '>= 1.0.3'
+
 gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
 
 gem 'open_uri_redirections'

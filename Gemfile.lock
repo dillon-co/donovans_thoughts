@@ -65,6 +65,8 @@ GEM
       awesome_print
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    google-search (1.0.3)
+      json
     htmlentities (4.3.4)
     i18n (0.7.0)
     jbuilder (2.4.1)
@@ -173,6 +175,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   gingerice
+  google-search (~> 1.0, >= 1.0.3)
   jbuilder (~> 2.0)
   jquery-rails
   nokogiri (~> 1.6, >= 1.6.7.2)
