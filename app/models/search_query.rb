@@ -22,4 +22,10 @@ class SearchQuery < ActiveRecord::Base
     q.take(64).map{ |que| que.uri }
   end  
 
+  def create_scrapped_links
+    google_search.each do |search_uri|
+      scrapped_links.new(google_link: search_uri)
+    end  
+  end  
+
 end
