@@ -27,5 +27,5 @@ class SearchQuery < ActiveRecord::Base
       scrapped_links.new(google_link: search_uri)
     end  
   end  
-
+c
 end

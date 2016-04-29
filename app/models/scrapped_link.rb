@@ -20,7 +20,7 @@ class ScrappedLink < ActiveRecord::Base
   def get_text_from_google_link(scrapper_url)
     doc = Nokogiri::HTML(open(scrapper_url, :allow_redirections => :all))
     doc.css('script', 'link').each { |node| node.remove }
-    return doc.css('body').text
+    return doc.css('body').text.squeeze('\n')
   end  
 
   def get_links_from_google_search
