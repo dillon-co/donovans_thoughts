@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: content_summaries
+#
+#  id               :integer          not null, primary key
+#  original_content :text
+#  summary          :text
+#  search_query_id  :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  original_content: MyText
+  summary: MyText
+
+two:
+  original_content: MyText
+  summary: MyText

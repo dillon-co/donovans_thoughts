@@ -21,7 +21,12 @@ gem 'rginger'
 
 gem 'ots'
 
-gem 'google-search', '~> 1.0', '>= 1.0.3'
+# gem 'google-search', '~> 1.0', '>= 1.0.3'
+
+# gem 'edavis10-ruby-web-search', '~> 0.0.2'
+gem 'searchbing', '~> 0.2.6'
+
+gem 'bing-search'
 
 gem 'nokogiri', '~> 1.6', '>= 1.6.7.2'
 

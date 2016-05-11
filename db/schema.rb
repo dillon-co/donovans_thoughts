@@ -11,17 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426001621) do
+ActiveRecord::Schema.define(version: 20160505210939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "content_summaries", force: :cascade do |t|
+    t.text     "original_content"
+    t.text     "summary"
+    t.integer  "search_query_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "scrapped_links", force: :cascade do |t|
     t.string   "link_name"
     t.text     "google_link"
     t.text     "scrapped_link"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "search_query_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "search_queries", force: :cascade do |t|
